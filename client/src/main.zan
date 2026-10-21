@@ -11,6 +11,9 @@ public class BkApp {
         router.Register("menu", new BkMenuScene(g));
         router.Register("play", new BkPlayScene(g));
         router.Register("over", new BkOverScene(g));
+        router.Register("settings", new BkSettingsScene(g));
+        // 设置读档一次（Game.Foundation.GameSettings 负责存盘与坏文件回退）。
+        BkSettings.Ensure();
         // demo 标记（breakout_demo.txt）直接进对局供截图/无头验证。
         router.Run(g.demo ? "play" : "menu");
     }

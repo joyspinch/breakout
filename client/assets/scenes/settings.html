@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- 设置场景：球速三档（慢 / 标准 / 快）。
+     档位控件 id 与事件名都取 "opt_<键>_<值>"——场景类按 SettingsModel 的
+     声明生成同名事件，加选项不会让按钮与行错位。
+     视觉全由 class 驱动（.opt 基础档、.opt.on 当前档），行内 style 只留几何。 -->
+<html>
+<head>
+<style>
+.opt { font-size:19px; padding:10px 96px; background:linear-gradient(180deg,#38a06e,#2c8058); color:#f2fff7; border:2px solid #4fd595; border-radius:12px; }
+.opt.on { background:linear-gradient(180deg,#8ff5bd,#38a06e); color:#0d2b1e; border:2px solid #ccffe6; }
+</style>
+</head>
+<body style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(170deg,#1b1035 0%,#0c0a1c 55%,#12082a 100%)">
+  <h1 style="color:#ffedbe;font-size:52px;margin:0">设置</h1>
+  <p style="color:#b9c3dc;font-size:18px;margin:0">球速</p>
+  <button id="opt_ballSpeedPct_85" data-on-click="opt_ballSpeedPct_85" class="opt">慢</button>
+  <button id="opt_ballSpeedPct_100" data-on-click="opt_ballSpeedPct_100" class="opt">标准</button>
+  <button id="opt_ballSpeedPct_120" data-on-click="opt_ballSpeedPct_120" class="opt">快</button>
+  <div style="height:16px"></div>
+  <button data-on-click="reset" style="font-size:17px;padding:9px 70px;background:#241a44;color:#c9bff0;border:2px solid #4a3d78;border-radius:10px">恢复默认</button>
+  <button data-on-click="back" style="font-size:19px;padding:11px 100px;background:linear-gradient(180deg,#38a06e,#2c8058);color:#f2fff7;border:2px solid #4fd595;border-radius:12px">返回</button>
+</body>
+</html>

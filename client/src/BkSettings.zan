@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using Game.Foundation;
+
+// 打砖块设置：选项声明在共享基座 Game.Foundation 上（GameSettings 存盘、
+// 校验、坏文件回退；SettingsModel 把声明翻译成档位按钮）。
+// 这里只声明"打砖块有哪些选项"与便捷读法——存盘与档位计算都在基座里。
+public class BkSettings {
+    static GameSettings store;
+
+    static string Path() { return "breakout_settings.json"; }
+
+    static GameSettings Store() {
+        if (BkSettings.store == null) {
+            GameSettings s = new GameSettings().At(BkSettings.Path());
+            // 球速倍率（百分比）：慢 85 / 标准 100 / 快 120。
+            s.AddIntChoice("ballSpeedPct", "球速", 100,
+                new List<int> { 85, 100, 120 });
+            s.Load();
+            BkSettings.store = s;
+        }
+        return BkSettings.store;
+    }
+
+    // 启动时读一次配置。
+    public static void Ensure() { BkSettings.Store(); }
+
+    public static GameSettings Base() { return BkSettings.Store(); }
+
+    public static int BallSpeedPct() { return BkSettings.Store().GetInt("ballSpeedPct"); }
+
+    public static void SetBallSpeedPct(int value) {
+        GameSettings s = BkSettings.Store();
+        s.SetInt("ballSpeedPct", value);
+        s.Save();
+    }
+
+    public static void ResetAll() {
+        GameSettings s = BkSettings.Store();
+        s.Reset();
+        s.Save();
+    }
+}

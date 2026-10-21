@@ -14,6 +14,7 @@ public class BkMenuScene : HtmlScene {
 
     override void OnWire(HtmlHandlers handlers) {
         handlers.Add("start", () => this.router.Go("play"));
+        handlers.Add("settings", () => this.router.Go("settings"));
     }
 
     override void OnEnter(Control root) {
