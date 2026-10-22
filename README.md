@@ -51,8 +51,8 @@ PROJECT.md
 ## 素材与授权
 
 - **大背景图已改为本地程序化生成**：`client/assets/menu_bg.png` 由仓内 `client/tools/make_bgs.py` 生成（纯 numpy + PIL，无外部素材来源），重新生成命令 `python client/tools/make_bgs.py`。
-- **标题图 `title.png` 由图像模型生成**：来自 zan-lang 早期打砖块模板（neon brick-breaker），由图像模型（gpt-image-2）产出，来源见 [zan-lang `60f325c0`](https://github.com/joyspinch/zan-lang/commit/60f325c013315235a28984075e29db7d10420e2d)。注意该图的标题字样是模型生成的形近字（并非规范中文字形），如需准确文字建议另行排版替换。
-- 仓库不含任何第三方版权素材；全部位图均为本项目自产（图像模型生成或本地程序化生成）。
+- **标题图 `title.png` 已改为本地程序化排版**：原图由图像模型（gpt-image-2）产出（来源见 [zan-lang `60f325c0`](https://github.com/joyspinch/zan-lang/commit/60f325c013315235a28984075e29db7d10420e2d)），但模型的中文字形不可靠——图上的「打砖块」是形近的伪汉字，属于明显错字，已重做。现在由仓内 `client/tools/make_title.py` 生成：字形用系统中文字体渲染（真字），霓虹外发光用多档高斯模糊叠出，底部砖排用游戏实砖调色板（`client/src/BkGame.zan` 的 `PalR/PalG/PalB` 六色）。重新生成命令 `python client/tools/make_title.py`（需要系统中文字体，可用 `ZAN_TITLE_FONT` 指定路径）。
+- 仓库不含任何第三方版权素材；全部位图均为本项目自产（本地程序化生成）。
 
 ## 许可
 
