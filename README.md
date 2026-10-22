@@ -51,7 +51,8 @@ PROJECT.md
 ## 素材与授权
 
 - **大背景图已改为本地程序化生成**：`client/assets/menu_bg.png` 由仓内 `client/tools/make_bgs.py` 生成（纯 numpy + PIL，无外部素材来源），重新生成命令 `python client/tools/make_bgs.py`。
-- 其余素材（标题图等）随 zan-lang 早期游戏模板一同迁出，**仍没有留下来源与授权记录**；公开发布前请自行核对这些素材的授权，或按同样方式改成本地生成。
+- **标题图 `title.png` 由图像模型生成**：来自 zan-lang 早期打砖块模板（neon brick-breaker），由图像模型（gpt-image-2）产出，来源见 [zan-lang `60f325c0`](https://github.com/joyspinch/zan-lang/commit/60f325c013315235a28984075e29db7d10420e2d)。注意该图的标题字样是模型生成的形近字（并非规范中文字形），如需准确文字建议另行排版替换。
+- 仓库不含任何第三方版权素材；全部位图均为本项目自产（图像模型生成或本地程序化生成）。
 
 ## 许可
 
